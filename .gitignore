@@ -6,4 +6,5 @@ package-lock.json
 logs/
 .idea
 .vscode
+packages/**/lib
 packages/**/dist
