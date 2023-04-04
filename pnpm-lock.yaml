@@ -17,6 +17,12 @@ importers:
       rollup: 3.20.2
       typescript: 5.0.3
 
+  packages/browser:
+    specifiers:
+      '@eagle-eye-sdk/core': workspace:^0.0.0
+    dependencies:
+      '@eagle-eye-sdk/core': link:../core
+
 packages:
 
   /@babel/code-frame/7.21.4:

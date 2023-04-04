@@ -1,11 +1,12 @@
 import EventHandler from "./EventHandler";
 
-interface Sender {
-  send: (data: unknown) => void;
+export interface Sender {
+  send(data: unknown): unknown;
 }
-interface Builder {
-  build: (data: unknown) => unknown;
+export interface Builder {
+  build(data: unknown): unknown;
 }
+
 // 线性处理数据
 function runProcessors(processors: Function[]) {
   return function (input: unknown) {

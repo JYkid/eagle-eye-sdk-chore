@@ -7,14 +7,21 @@ const name = path.basename(packageDir);
 const config: RollupOptions = {
   // TODO: ESM 供自己使用
   input: ["src/index.ts"],
-  output: {
-    name: `EAGLE_EYE_${name.toLocaleUpperCase()}`,
-    dir: "./lib",
-    format: "umd",
-  },
+  output: [
+    {
+      name: `EagleEyeCore`,
+      file: "./lib/index.umd.js",
+      format: "umd",
+    },
+    {
+      file: "./lib/index.esm.js",
+      format: "esm",
+    },
+  ],
   plugins: [
     ts({
       tsconfig: "./tsconfig.json",
+      useTsconfigDeclarationDir: true,
     }),
   ],
 };

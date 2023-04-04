@@ -1,0 +1,32 @@
+{
+  "name": "@eagle-eye-sdk/browser",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "liulu <1021283712@qq.com>",
+  "homepage": "https://github.com/developer-once/eagle-eye-sdk-chore#readme",
+  "license": "MIT",
+  "main": "lib/browser.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/developer-once/eagle-eye-sdk-chore.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/@eagle-eye-sdk/browser.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/developer-once/eagle-eye-sdk-chore/issues"
+  },
+  "dependencies": {
+    "@eagle-eye-sdk/core": "workspace:^0.0.0"
+  }
+}
