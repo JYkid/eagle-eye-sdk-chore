@@ -1,25 +1,18 @@
 // TODO: 抽象 Rollup配置文件
 import type { RollupOptions } from "rollup";
 import ts from "rollup-plugin-typescript2";
-import path from "path";
-
-const packageDir = path.resolve(__dirname);
-const name = path.basename(packageDir);
+import nodeResolve from "@rollup/plugin-node-resolve";
 const config: RollupOptions = {
-  // TODO: ESM 供自己使用
   input: ["src/index.ts"],
   output: [
     {
-      name: `EagleEyeCore`,
+      name: `EagleEyeBrowser`,
       file: "./lib/index.umd.js",
       format: "umd",
     },
-    {
-      file: "./lib/index.esm.js",
-      format: "esm",
-    },
   ],
   plugins: [
+    nodeResolve(),
     ts({
       tsconfig: "./tsconfig.json",
       useTsconfigDeclarationDir: true,

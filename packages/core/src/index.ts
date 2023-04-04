@@ -7,6 +7,10 @@ export interface Builder {
   build(data: unknown): unknown;
 }
 
+export interface Plugin {
+  setup(client: MonitorSDK): void;
+}
+
 // 线性处理数据
 function runProcessors(processors: Function[]) {
   return function (input: unknown) {
@@ -52,6 +56,19 @@ class MonitorSDK {
   // 上报信息
   send(data: unknown) {
     this.sender.send(data);
+  }
+  // 添加流程
+  on(ev: string, handler: Function) {
+    this.handler.addHandler(ev, handler);
+  }
+  // 删除流程
+  off(ev: string, handler: Function) {
+    this.handler.removeHandler(ev, handler);
+  }
+  // 安装插件
+  // TODO: 绑定 config
+  use(plugin: Plugin) {
+    plugin.setup(this);
   }
 }
 

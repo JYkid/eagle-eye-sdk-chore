@@ -90,6 +90,19 @@ var MonitorSDK = /** @class */ (function () {
     MonitorSDK.prototype.send = function (data) {
         this.sender.send(data);
     };
+    // 添加流程
+    MonitorSDK.prototype.on = function (ev, handler) {
+        this.handler.addHandler(ev, handler);
+    };
+    // 删除流程
+    MonitorSDK.prototype.off = function (ev, handler) {
+        this.handler.removeHandler(ev, handler);
+    };
+    // 安装插件
+    // TODO: 绑定 config
+    MonitorSDK.prototype.use = function (plugin) {
+        plugin.setup(this);
+    };
     return MonitorSDK;
 }());
 
