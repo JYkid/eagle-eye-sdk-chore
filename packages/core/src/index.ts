@@ -1,13 +1,22 @@
 import EventHandler from "./EventHandler";
 
-export interface Sender {
+export type Config = {
+  url: string;
+  app_key: string;
+};
+export interface IConfigManager {
+  config: Config;
+  getConfig(): Config;
+}
+export interface ISender {
+  configManager: IConfigManager;
   send(data: unknown): unknown;
 }
-export interface Builder {
+export interface IBuilder {
   build(data: unknown): unknown;
 }
 
-export interface Plugin {
+export interface IPlugin {
   setup(client: MonitorSDK): void;
 }
 
@@ -28,10 +37,10 @@ function runProcessors(processors: Function[]) {
 }
 // 基座
 class MonitorSDK {
-  sender: Sender;
+  sender: ISender;
   handler;
-  builder: Builder;
-  constructor(sender: Sender, builder: Builder) {
+  builder: IBuilder;
+  constructor(sender: ISender, builder: IBuilder) {
     this.sender = sender;
     this.builder = builder;
     this.handler = new EventHandler();
@@ -69,7 +78,7 @@ class MonitorSDK {
   }
   // 安装插件
   // TODO: 绑定 config
-  use(plugin: Plugin) {
+  use(plugin: IPlugin) {
     plugin.setup(this);
   }
 }

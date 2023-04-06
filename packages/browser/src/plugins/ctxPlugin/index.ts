@@ -1,10 +1,10 @@
-import type { Plugin } from "@eagle-eye-sdk/core";
+import type { IPlugin } from "@eagle-eye-sdk/core";
 import MonitorSDK from "@eagle-eye-sdk/core";
 
 function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
-const ctxPlugin: Plugin = {
+const ctxPlugin: IPlugin = {
   setup: function (client: MonitorSDK) {
     client.on("collect", (data: unknown) => {
       if (isObject(data)) {

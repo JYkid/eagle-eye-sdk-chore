@@ -1,4 +1,4 @@
-import type { Plugin } from "@eagle-eye-sdk/core";
+import type { IPlugin } from "@eagle-eye-sdk/core";
 import MonitorSDK from "@eagle-eye-sdk/core";
 import { on } from "../../helpers/index";
 export interface ResourceErrorTarget {
@@ -7,7 +7,7 @@ export interface ResourceErrorTarget {
   localName?: string;
   src?: string;
 }
-const resourceErrorPlugin: Plugin = {
+const resourceErrorPlugin: IPlugin = {
   setup: function (client: MonitorSDK) {
     // TODO: 判断是否已经初始化,才开始执行
     const globalEventHandlers = function (e: ErrorEvent) {

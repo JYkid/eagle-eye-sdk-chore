@@ -1,6 +1,7 @@
-import type { Builder } from "@eagle-eye-sdk/core";
+import type { IBuilder } from "@eagle-eye-sdk/core";
 
-class BrowserBuilder implements Builder {
+// 实现面包
+class BrowserBuilder implements IBuilder {
   build(): void {
     console.log("Browser...");
   }
