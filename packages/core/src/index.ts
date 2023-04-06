@@ -21,7 +21,9 @@ export interface IPlugin {
 }
 
 // 线性处理数据
-const noop = () => {};
+const noop = (data: unknown) => {
+  return data;
+};
 function runProcessors(processors: Function[]) {
   if (!processors || !processors.length) return noop;
   return function (input: unknown) {
@@ -60,8 +62,8 @@ class MonitorSDK {
     );
     var builded = this.builder.build(preBuild);
     if (!builded) return;
-    const processed = runProcessors(this.handler.getHandler("build"))(data);
-    if (processed) return;
+    const processed = runProcessors(this.handler.getHandler("build"))(builded);
+    if (!processed) return;
     this.send(processed);
   }
   // 上报信息
