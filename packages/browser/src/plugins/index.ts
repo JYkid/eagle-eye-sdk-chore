@@ -1,4 +1,5 @@
 import consolePlugin from "./consolePlugin";
-import sourceErrorPlugin from "./sourceErrorPlugin";
+import resourceErrorPlugin from "./resourceErrorPlugin";
+import ctxPlugin from "./ctxPlugin";
 
-export { consolePlugin, sourceErrorPlugin };
+export { consolePlugin, resourceErrorPlugin, ctxPlugin };

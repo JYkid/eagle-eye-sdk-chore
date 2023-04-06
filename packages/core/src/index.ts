@@ -12,7 +12,9 @@ export interface Plugin {
 }
 
 // 线性处理数据
+const noop = () => {};
 function runProcessors(processors: Function[]) {
+  if (!processors || !processors.length) return noop;
   return function (input: unknown) {
     return processors.reduce((output, processor) => {
       try {
