@@ -1,2 +1,3 @@
-const a = 2;
-console.log(2);
+import BrowerClient from "@eagle-eye-sdk/browser";
+
+console.log(BrowerClient);

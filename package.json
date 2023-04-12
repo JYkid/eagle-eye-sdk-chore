@@ -5,6 +5,7 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@types/node": "^18.15.11",
     "lerna": "^6.6.1",

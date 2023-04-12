@@ -13,8 +13,13 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@rollup/plugin-html": "^1.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.2",
     "rollup-plugin-livereload": "^2.0.5",
-    "rollup-plugin-serve": "^2.0.2"
+    "rollup-plugin-serve": "^2.0.2",
+    "@rollup/plugin-commonjs": "^24.1.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@eagle-eye-sdk/browser": "workspace:^0.0.0"
+  }
 }
